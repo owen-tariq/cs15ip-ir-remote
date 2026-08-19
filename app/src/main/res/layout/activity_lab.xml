@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CODE LAB"
+            android:textSize="22sp"
+            android:textColor="#F4F7FC"
+            android:fontFamily="sans-serif-light" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. FIND ADDRESSES sweeps everything (~7 min). Watch the radio — tap MARK the instant it reacts.\n2. MAP COMMANDS walks cmds 0–127 on the address you type. MARK reactions.\n3. Verify with SEND, label it, tap WORKS ✓.\n4. SAVE puts the CSV in Downloads; SHARE sends it anywhere."
+            android:textSize="12sp"
+            android:textColor="#8A93A6"
+            android:lineSpacingExtra="2dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="14dp" />
+
+        <!-- Live readout -->
+        <TextView
+            android:id="@+id/labProbe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="—"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#4C8DFF"
+            android:gravity="center"
+            android:background="@drawable/bg_card"
+            android:padding="18dp" />
+
+        <TextView
+            android:id="@+id/labCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="0 sent"
+            android:textSize="11sp"
+            android:textColor="#5B6575"
+            android:paddingTop="4dp"
+            android:paddingBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/labMark"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:text="MARK — RADIO REACTED!"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:backgroundTint="#E8B84B"
+            android:textColor="#0E1116" />
+
+        <CheckBox
+            android:id="@+id/labAutoDetect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="AUTO-DETECT with microphone — radio must be playing steady sound; hits get logged by themselves"
+            android:textSize="12sp"
+            android:textColor="#E8B84B" />
+
+        <!-- Sweeps -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labStartSweep"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="56dp"
+                android:text="FIND ADDRESSES"
+                android:textSize="12sp"
+                app:cornerRadius="16dp"
+                app:backgroundTint="#1D2735"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labMapCmds"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="56dp"
+                android:text="MAP COMMANDS"
+                android:textSize="12sp"
+                app:cornerRadius="16dp"
+                app:backgroundTint="#1D2735"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labStop"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="56dp"
+                android:text="STOP"
+                android:textSize="12sp"
+                android:enabled="false"
+                app:cornerRadius="16dp"
+                app:backgroundTint="#7A2E2E" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/labDeepHunt"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:text="🔎 DEEP HUNT — 101 · 26.57 · 26.153 · 69 · 99 · S12 16 · 17 (~9 min)"
+            android:textSize="11sp"
+            app:cornerRadius="16dp"
+            app:backgroundTint="#4A3A16"
+            android:textColor="#F4F7FC" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/labIpodHunt"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:text="🎵 iPOD HUNT — addr 100 + 153 + 26.19, every cmd (~4 min)"
+            android:textSize="12sp"
+            app:cornerRadius="16dp"
+            app:backgroundTint="#1F4D3D"
+            android:textColor="#F4F7FC" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/labPowerHunt"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:text="⏻ POWER HUNT — fires 16 power candidates, 2 s apart"
+            android:textSize="12sp"
+            app:cornerRadius="16dp"
+            app:backgroundTint="#3D2A6B"
+            android:textColor="#F4F7FC" />
+
+        <!-- Manual test -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <EditText android:id="@+id/labAddr" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:inputType="number" android:hint="addr"
+                android:text="68" android:textColor="#F4F7FC" android:textColorHint="#5B6575" />
+            <EditText android:id="@+id/labCmd" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:inputType="number" android:hint="cmd"
+                android:text="0" android:textColor="#F4F7FC" android:textColorHint="#5B6575" />
+            <EditText android:id="@+id/labBits" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:inputType="number" android:hint="bits"
+                android:text="15" android:textColor="#F4F7FC" android:textColorHint="#5B6575" />
+            <EditText android:id="@+id/labExt" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:inputType="number" android:hint="ext"
+                android:text="0" android:textColor="#F4F7FC" android:textColorHint="#5B6575" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labMinus" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="52dp" android:text="−1" app:cornerRadius="14dp"
+                app:backgroundTint="#1D2735" android:layout_marginEnd="6dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labSend" android:layout_width="0dp" android:layout_weight="1.4"
+                android:layout_height="52dp" android:text="SEND" app:cornerRadius="14dp"
+                app:backgroundTint="#2E6BFF" android:layout_marginEnd="6dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labPlus" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="52dp" android:text="+1" app:cornerRadius="14dp"
+                app:backgroundTint="#1D2735" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <EditText android:id="@+id/labLabel" android:layout_width="0dp" android:layout_weight="1.6"
+                android:layout_height="wrap_content" android:hint="what did it do? e.g. Vol up"
+                android:textColor="#F4F7FC" android:textColorHint="#5B6575" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labWorks" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="52dp" android:text="WORKS ✓" app:cornerRadius="14dp"
+                app:backgroundTint="#1F7A4D" />
+        </LinearLayout>
+
+        <!-- Save / share -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labSave" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="56dp" android:text="SAVE CSV" android:textSize="11sp"
+                app:cornerRadius="16dp" app:backgroundTint="#1D2735" android:layout_marginEnd="6dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labCopy" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="56dp" android:text="COPY LOG" android:textSize="11sp"
+                app:cornerRadius="16dp" app:backgroundTint="#2E6BFF" android:layout_marginEnd="6dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labShare" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="56dp" android:text="SHARE" android:textSize="11sp"
+                app:cornerRadius="16dp" app:backgroundTint="#1D2735" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/labLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:textSize="11sp"
+            android:textColor="#8A93A6"
+            android:paddingTop="14dp"
+            android:text="" />
+    </LinearLayout>
+</ScrollView>

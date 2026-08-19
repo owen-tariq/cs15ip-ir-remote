@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CS15iP" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:statusBarColor">#151A23</item>
+        <item name="android:navigationBarColor">#07090D</item>
+        <item name="colorPrimary">#4C8DFF</item>
+        <item name="android:windowBackground">@drawable/bg_gradient</item>
+    </style>
+</resources>

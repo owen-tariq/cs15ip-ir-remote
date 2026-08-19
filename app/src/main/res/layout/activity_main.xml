@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SONY  DREAM  MACHINE"
+            android:textSize="11sp"
+            android:letterSpacing="0.4"
+            android:textColor="#5B6575"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ICF-CS15iP"
+            android:textSize="28sp"
+            android:textColor="#F4F7FC"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginTop="2dp" />
+
+        <ImageView
+            android:id="@+id/machineImage"
+            android:layout_width="220dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="14dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_card"
+            android:contentDescription="Sony ICF-CS15iP" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textColor="#69D58C"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="18dp"
+            android:text="● IR READY" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3">
+
+            <!-- Row 1: vol- / mega / vol+ -->
+            <LinearLayout android:id="@+id/volDownButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="🔉" />
+                <TextView style="@style/TileLabel" android:text="VOL −" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/soundButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="🎚️" />
+                <TextView style="@style/TileLabel" android:text="MEGA BASS\nMEGA XPAND" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/volUpButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="🔊" />
+                <TextView style="@style/TileLabel" android:text="VOL +" />
+            </LinearLayout>
+
+            <!-- Row 2: iPod transport -->
+            <LinearLayout android:id="@+id/rewButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="⏮" />
+                <TextView style="@style/TileLabel" android:text="PREVIOUS" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/playPauseButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="⏯" />
+                <TextView style="@style/TileLabel" android:text="PLAY · PAUSE" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/nextButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="⏭" />
+                <TextView style="@style/TileLabel" android:text="NEXT" />
+            </LinearLayout>
+
+            <!-- Row 3: tuner -->
+            <LinearLayout android:id="@+id/tuneDownButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="⏪" />
+                <TextView style="@style/TileLabel" android:text="TUNE −" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/bandButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="📻" />
+                <TextView style="@style/TileLabel" android:text="AM · FM" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuneUpButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="⏩" />
+                <TextView style="@style/TileLabel" android:text="TUNE +" />
+            </LinearLayout>
+
+            <!-- Row 4: audio in + sleep -->
+            <LinearLayout android:id="@+id/pauseButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="🔌" />
+                <TextView style="@style/TileLabel" android:text="AUDIO IN\nON" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/offButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="🚫" />
+                <TextView style="@style/TileLabel" android:text="AUDIO IN\nOFF" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/sleepButton" style="@style/Tile">
+                <TextView style="@style/TileIcon" android:text="🌙" />
+                <TextView style="@style/TileLabel" android:text="SLEEP" />
+            </LinearLayout>
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/labOpenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:padding="10dp"
+            android:text="⚗ CODE LAB"
+            android:textSize="11sp"
+            android:letterSpacing="0.2"
+            android:textColor="#5B6575"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
+</ScrollView>
